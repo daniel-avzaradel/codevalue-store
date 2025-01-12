@@ -7,15 +7,15 @@ import ProductDetails from "./components/product-details/ProductDetails"
 import AddProductModal from "./components/add-product/AddProductModal"
 import Pagination from "./components/pagination/Pagination"
 import { ProductProps } from "./lib/store"
+import { productsArr } from "./lib/products"
 
 function App() {
 
-  let retrieveData = JSON.parse(localStorage.getItem('products') || '')  
+  let retrieveData = localStorage.getItem('products')
   const [products, setProducts] = useState(() => {
-    return retrieveData.map((el: ProductProps) => {
+    return retrieveData ? JSON.parse(retrieveData).map((el: ProductProps) => {
       return {...el, creation_date: new Date(el.creation_date)}
-    })
-    // return productsArr
+    }) : productsArr
   })
   const [selectedProduct, setSelectedProduct] = useState<ProductProps>(products[0] ?? null)
   const [addProduct, setAddProduct] = useState(false)
