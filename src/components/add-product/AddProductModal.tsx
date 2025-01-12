@@ -45,9 +45,6 @@ const AddProductModal = ({setAddProduct, setProducts}: AddProductModalProps) => 
     }
   }
 
-  // Gaming Keyboard
-  // On gaming keyboards, which are mostly mechanical, the key switches require less depression and result in faster action for games.
-  
   return (
     <AddProductModalScreen onClick={() => setAddProduct((prev: boolean) => !prev)}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
